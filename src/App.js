@@ -1,6 +1,6 @@
 import './App.css'
 
-import History from './History/index'
+import History from '../History/index'
 
 // These are the list used in the application. You can move them to any component needed.
 const initialHistoryList = [
