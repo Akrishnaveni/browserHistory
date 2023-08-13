@@ -2,7 +2,7 @@ import {Component} from 'react'
 
 import './index.css'
 
-import HistoryItem from '../HistoryItem'
+import HistoryItem from '../HistoryItem/index'
 
 const initialHistoryList = [
   {
@@ -94,7 +94,7 @@ class History extends Component {
   }
 
   render() {
-    const {historyList, seacrhInput} = this.state
+    const {historyList, searchInput} = this.state
     const searchResult = historyList.filter(each =>
       each.title.includes(searchInput),
     )
