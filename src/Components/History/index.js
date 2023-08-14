@@ -82,6 +82,12 @@ const initialHistoryList = [
 class History extends Component {
   state = {searchInput: '', historyList: initialHistoryList}
 
+  updateSearchInput = value => {
+    this.setState({
+      searchInput: value,
+    })
+  }
+
   onChangeSearchInput = event => {
     this.setState({searchInput: event.target.value})
   }
@@ -95,8 +101,9 @@ class History extends Component {
 
   render() {
     const {historyList, searchInput} = this.state
+
     const searchResult = historyList.filter(each =>
-      each.title.includes(searchInput),
+      each.title.toLowerCase().includes(searchInput.toLowerCase()),
     )
 
     return (
@@ -108,30 +115,34 @@ class History extends Component {
             alt="app logo"
           />
           <div className="input-container">
-            <div className="search-container">
-              <img
-                src="https://assets.ccbp.in/frontend/react-js/search-img.png"
-                className="search-image"
-                alt="search"
-              />
-            </div>
+            <img
+              src="https://assets.ccbp.in/frontend/react-js/search-img.png"
+              className="search-image"
+              alt="search"
+            />
             <input
               placeholder="search History"
               type="search"
-              value={historyList}
+              value={searchInput}
               className="input"
               onChange={this.onChangeSearchInput}
             />
           </div>
         </div>
         <ul className="list-container">
+          {searchResult.length === 0 && (
+            <p className="para">There is no history to show.</p>
+          )}
+          {searchResult.length!==0 && (
           {searchResult.map(each => (
             <HistoryItem
               historyDetails={each}
               key={each.id}
               deleteHistory={this.deleteHistory}
+              updateSearchInput={this.updateSearchInput}
             />
-          ))}
+          ))})
+          }
         </ul>
       </div>
     )
