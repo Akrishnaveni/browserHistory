@@ -1,10 +1,16 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .header {
   height: 2%;
   width: 100%;
   background-color: #3367d6;
   display: flex;
   justify-content: space-around;
-  padding: 19px;
+  padding: 20px;
 }
 .input-container {
   background-color: #2850a7;
@@ -13,6 +19,8 @@
   width: 160px;
   height: 30px;
   padding: 8px;
+  display: flex;
+  flex-direction: row;
 }
 .search-container {
   color: white;
@@ -26,6 +34,8 @@
 .input {
   border: none;
   outline: none;
+  background-color: transparent;
+  color: white;
 }
 .list-container {
   box-shadow: 1px 1px 1px 1px #acb1b8;
@@ -34,4 +44,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
+  width: 60%;
+  text-align: center;
 }
